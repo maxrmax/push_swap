@@ -6,7 +6,7 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/01/13 17:02:51 by mring            ###   ########.fr        #
+#    Updated: 2025/02/04 16:43:43 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ OBJ_DIR		= obj
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 INCS		= -I ./includes/
 
-# LIBFT_PATH	=	./libft
-# LIBFT		=	$(LIBFT_PATH)/libft.a
+LIBFT_PATH	=	./libft
+LIBFT		=	$(LIBFT_PATH)/libft.a
 
 all: ${NAME}
 
@@ -32,16 +32,21 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(OBJ_DIR):
 				@mkdir -p $(OBJ_DIR)
 
-${NAME}: 		$(OBJ_DIR) $(OBJS)
-				@$(CC) $(OBJS) -o $(NAME)
+${NAME}: 		$(OBJ_DIR) $(OBJS) $(LIBFT)
+				@$(CC) $(OBJS) -o $(NAME) $(LIBFT)
+				@echo "/// compiled: $(NAME) ///"
+
+${LIBFT}:
+	@$(MAKE) -C $(LIBFT_PATH)
 
 clean:
 				@rm -rf ${OBJ_DIR}
-				@echo "/// cleaning $(NAME) ///"
+				@$(MAKE) -C $(LIBFT_PATH) clean
+				@echo "/// cleaning.. ///"
 
 fclean: 		clean
 				@rm -f ${NAME}
-				@echo "/// fcleaning $(NAME) ///"
+				@$(MAKE) -C $(LIBFT_PATH) fclean
 
 re: 			fclean all
 
@@ -58,4 +63,4 @@ test5: $(NAME)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
-.PHONY:			all clean fclean re 
+.PHONY:			all clean fclean re

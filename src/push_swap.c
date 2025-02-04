@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/01/22 13:47:37 by mring            ###   ########.fr       */
+/*   Updated: 2025/02/04 16:43:51 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ how to parse? should only be numbers
 #include "push_swap.h"
 
 // first argument is the top of the stack ./push_swap 1 9 6 5 2 3
+// need to handle string input too "1 2 3 4 5 6 7 9 8" > atoi
 int	main(int ac, char **argv)
 {
 	if (ac == 1 || (ac == 2 && !argv[1][0]))
@@ -61,26 +62,29 @@ V.1 The rules
 ◦ The stack a contains a random amount of negative and/or positive numbers
 which cannot be duplicated.
 ◦ The stack b is empty.
-• The goal is to sort in ascending order numbers into stack a. To do so you have the
-following operations at your disposal:
+• The goal is to sort in ascending order numbers into stack a.
+To do so you have the following operations at your disposal:
+
 sa (swap a): Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one or no elements.
+	Do nothing if there is only one or no elements.
 sb (swap b): Swap the first 2 elements at the top of stack b.
-Do nothing if there is only one or no elements.
+	Do nothing if there is only one or no elements.
 ss : sa and sb at the same time.
+
 pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.
+	Do nothing if b is empty.
 pb (push b): Take the first element at the top of a and put it at the top of b.
-Do nothing if a is empty.
+	Do nothing if a is empty.
 ra (rotate a): Shift up all elements of stack a by 1.
-The first element becomes the last one.
+	The first element becomes the last one.
 rb (rotate b): Shift up all elements of stack b by 1.
-The first element becomes the last one.
+	The first element becomes the last one.
 rr : ra and rb at the same time.
+
 rra (reverse rotate a): Shift down all elements of stack a by 1.
-The last element becomes the first one.
+	The last element becomes the first one.
 rrb (reverse rotate b): Shift down all elements of stack b by 1.
-The last element becomes the first one.
+	The last element becomes the first one.
 rrr : rra and rrb at the same time.
 
 -------------------
