@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/02/04 16:43:51 by mring            ###   ########.fr       */
+/*   Updated: 2025/02/17 21:12:26 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,25 @@ input parsing, sub function or in main?
 how to parse? should only be numbers
 */
 
-#include "push_swap.h"
+// #include "push_swap.h"
+#include <stdio.h>
+#include <unistd.h>
 
 // first argument is the top of the stack ./push_swap 1 9 6 5 2 3
 // need to handle string input too "1 2 3 4 5 6 7 9 8" > atoi
-int	main(int ac, char **argv)
+int	main(int ac, char **av)
 {
-	if (ac == 1 || (ac == 2 && !argv[1][0]))
+	if (ac == 1 || (ac >= 2 && !av[1][0]))
 		return (1);
-	else if (ac == 2)
-		write(1, "\n", 1);
+	if (ac == 2)
+	{
+		// split logic
+	}
+	else
+	{
+		// skip split logic
+	}
+	// atoi necesarry for both. "1 2 3 4 5" < needs split ./a.out 1 2 3 4 5 < doesn't need split
 }
 
 /*

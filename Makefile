@@ -6,7 +6,7 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/02/04 16:43:43 by mring            ###   ########.fr        #
+#    Updated: 2025/02/17 16:40:23 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,5 +62,18 @@ test5: $(NAME)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
+#linux test cases
+test2l: $(NAME)
+				$(eval ARG = $(shell echo $$((RANDOM % 101)) $$((RANDOM % 101))))
+				@echo "Generated ARG: $(ARG)"
+				./push_swap $(ARG) | ./checker_linux $(ARG)
+				@echo -n "Instructions: "
+				@./push_swap $(ARG) | wc -l
+test5l: $(NAME)
+				$(eval ARG = $(shell echo $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101))))
+				@echo "Generated ARG: $(ARG)"
+				./push_swap $(ARG) | ./checker_linux $(ARG)
+				@echo -n "Instructions: "
+				@./push_swap $(ARG) | wc -l
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re test2 test5 test2l test5l
