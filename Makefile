@@ -6,14 +6,14 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/02/17 16:40:23 by mring            ###   ########.fr        #
+#    Updated: 2025/02/18 12:37:30 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
-SRC			= push_swap
+SRC			= push_swap swap push rotate rev_rotate
 SRCS		= $(addsuffix .c, $(SRC))
 SRC_DIR		= src
 
