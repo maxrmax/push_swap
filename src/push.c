@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:05 by mring             #+#    #+#             */
-/*   Updated: 2025/02/18 16:10:12 by mring            ###   ########.fr       */
+/*   Updated: 2025/02/18 17:29:47 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ static void	push(t_stack **source, t_stack **destination)
 		return ;
 	node = *source; // first node saved locally
 	*source = (*source)->next;
-
 	if (*source)
 		(*source)->prev = NULL;
-
 	node->next = *destination;       // point node at the old top of other stack
 	if (*destination)                // but if dst is not NULL
 		(*destination)->prev = node; // point prev back to new top
