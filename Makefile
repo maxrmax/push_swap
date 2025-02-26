@@ -6,7 +6,7 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/02/24 12:12:47 by mring            ###   ########.fr        #
+#    Updated: 2025/02/25 16:58:18 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,31 +58,19 @@ test: $(NAME)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 
+# linux version
+testl: $(NAME)
+	$(eval N = $(if $(filter-out test,$(MAKECMDGOALS)), $(word 2, $(MAKECMDGOALS)), 5))
+	$(eval ARG = $(shell bash -c 'for i in $$(seq $(N)); do echo -n "$$((RANDOM % 101)) " ; done' | sed 's/ *$$//'))
+	@echo "Generated ARG ($(N) numbers): $(ARG)"
+	./push_swap $(ARG) | ./checker_linux $(ARG)
+	@echo -n "Instructions: "
+	@./push_swap $(ARG) | wc -l
+
 # Dummy rule to ignore extra command-line arguments
 # like make test 10 for above testing case.
 # would say "no rule for 10"
 %:
 	@:
 
-
-test5: $(NAME)
-				$(eval ARG = $(shell echo $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101))))
-				@echo "Generated ARG: $(ARG)"
-				./push_swap $(ARG) | ./checker_Mac $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-#linux test cases
-test2l: $(NAME)
-				$(eval ARG = $(shell echo $$((RANDOM % 101)) $$((RANDOM % 101))))
-				@echo "Generated ARG: $(ARG)"
-				./push_swap $(ARG) | ./checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-test5l: $(NAME)
-				$(eval ARG = $(shell echo $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101)) $$((RANDOM % 101))))
-				@echo "Generated ARG: $(ARG)"
-				./push_swap $(ARG) | ./checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-.PHONY:			all clean fclean re test test5 test2l test5l
+.PHONY:			all clean fclean re test testl
