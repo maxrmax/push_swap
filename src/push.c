@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:05 by mring             #+#    #+#             */
-/*   Updated: 2025/02/18 17:29:47 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/04 11:48:28 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	push(t_stack **source, t_stack **destination)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	// if (push(stack_b, stack_a))
 	push(stack_b, stack_a);
 	ft_putstr_fd("pa\n", 1);
 }
