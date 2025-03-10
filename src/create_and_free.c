@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:26:02 by mring             #+#    #+#             */
-/*   Updated: 2025/03/03 12:27:19 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 17:26:29 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,13 @@ bool	create_stack(char **tokens, t_stack **stack_a)
 		if (!new_node)
 			return (1);
 		if (!*stack_a)
+			*stack_a = new_node;
+		else
 		{
-			*stack_a = new_node; // add first node to stack
-			current = new_node;
+			current->next = new_node;
+			new_node->prev = current;
 		}
-		else // adding all other nodes
-		{
-			current->next = new_node; // add new_node to next pos
-			new_node->prev = current; // prev from new_node to current
-			current = new_node;       // new_node is now current node
-		}
+		current = new_node;
 	}
 	return (0);
 }

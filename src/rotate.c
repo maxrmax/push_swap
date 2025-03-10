@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:10 by mring             #+#    #+#             */
-/*   Updated: 2025/02/18 10:59:57 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 17:22:44 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static void	rotate(t_stack **stack)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	head = *stack;     // Store top of the node
-	tail = *stack;     // tail to find last node
-	while (tail->next) // find last node
+	head = *stack;
+	tail = *stack;
+	while (tail->next)
 		tail = tail->next;
-	*stack = head->next; // new top is second element
-	head->next = NULL;   // old top is now last element
+	*stack = head->next;
+	head->next = NULL;
 	(*stack)->prev = NULL;
-	tail->next = head; // link old top to the end
+	tail->next = head;
 	head->prev = tail;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:00:02 by mring             #+#    #+#             */
-/*   Updated: 2025/03/03 12:00:20 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 17:24:15 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	long result;
-	int sign;
-	int i;
+	long	result;
+	int		sign;
+	int		i;
 
 	i = 0;
 	result = 0;
@@ -39,4 +39,44 @@ long	ft_atol(const char *str)
 	if (str[i])
 		return (LONG_MIN);
 	return (result * sign);
+}
+
+int	stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
+}
+
+bool	is_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+t_stack	*find_smallest(t_stack *stack)
+{
+	t_stack	*smallest;
+
+	if (!stack)
+		return (NULL);
+	smallest = stack;
+	while (stack)
+	{
+		if (stack->value < smallest->value)
+			smallest = stack;
+		stack = stack->next;
+	}
+	return (smallest);
 }

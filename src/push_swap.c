@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/03/04 12:14:58 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 17:21:39 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,89 +36,34 @@ void	print_stack(t_stack *stack)
 	printf("\n");
 }
 
-int	stack_size(t_stack *stack)
+void	sorting_start(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
 
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
-}
-
-//
-//
-//
-
-bool	is_sorted(t_stack *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
-}
-
-int	partition_push_swap(t_stack **stack_a, t_stack **stack_b, int size)
-{
-	int	pivot;
-	int	pushed;
-	int	rotated;
-	int	i;
-
-	i = 0;
-	pushed = 0;
-	rotated = 0;
-	pivot = (*stack_a)->value;
-	while (i++ < size)
-	{
-		if ((*stack_a)->value < pivot)
-		{
-			pb(stack_a, stack_b);
-			pushed++;
-		}
-		else
-		{
-			ra(stack_a);
-			rotated++;
-		}
-	}
-	while (rotated-- > 0)
-		rra(stack_a); // Undo rotations
-	return (pushed);  // Elements pushed to stack_b
-}
-
-void	quicksort_push_swap(t_stack **stack_a, t_stack **stack_b, int size)
-{
-	int left_size;  // left stack size
-	int right_size; // right stack size
-	if (size <= 1 || is_sorted(*stack_a))
+	if (is_sorted(*stack_a))
 		return ;
-	left_size = partition_push_swap(stack_a, stack_b, size);
-	right_size = size - left_size; // size - left size
-	if (left_size > 0)
-		quicksort_push_swap(stack_a, stack_b, right_size);
-	if (right_size > 0)
-		quicksort_push_swap(stack_b, stack_a, left_size);
-	while (*stack_b)
-		pa(stack_a, stack_b); // Restore sorted values
+	size = stack_size(*stack_a);
+	if (size <= 5)
+	{
+		if (size == 2)
+			sort_two(stack_a);
+		if (size == 3)
+			sort_three(stack_a);
+		if (size == 4)
+			sort_four(stack_a, stack_b);
+		if (size == 5)
+			sort_five(stack_a, stack_b);
+		return ;
+	}
+	else
+		turksort(stack_a, stack_b);
 }
-
-//
-//
-//
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	**tokens;
-	int		size;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -135,8 +80,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		size = stack_size(stack_a);
-		quicksort_push_swap(&stack_a, &stack_b, size);
+		sorting_start(&stack_a, &stack_b);
 		print_stack(stack_a);
 	}
 	return (free_stack(stack_a), 0);

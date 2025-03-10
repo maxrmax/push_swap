@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:03:20 by mring             #+#    #+#             */
-/*   Updated: 2025/03/03 12:30:49 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 16:32:45 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 typedef struct s_stack
 {
 	int				value;
+	int				index;
+	int				push_cost;
+	bool			above_median;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
@@ -43,6 +46,15 @@ long				ft_atol(const char *str);
 bool				check_duplicates(t_stack **stack);
 bool				int_range(char **tokens);
 int					parsing(int ac, char **tokens, t_stack **stack_a);
+
+int					stack_size(t_stack *stack);
+bool				is_sorted(t_stack *stack);
+void				sort_two(t_stack **stack_a);
+void				sort_three(t_stack **stack_a);
+void				sort_four(t_stack **stack_a, t_stack **stack_b);
+void				sort_five(t_stack **stack_a, t_stack **stack_b);
+t_stack				*find_smallest(t_stack *stack);
+void				turksort(t_stack **stack_a, t_stack **stack_b);
 
 bool				create_stack(char **tokens, t_stack **stack_a);
 t_stack				*create_node(int n);

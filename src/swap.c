@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:11 by mring             #+#    #+#             */
-/*   Updated: 2025/02/18 14:09:54 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/10 17:22:26 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void	swap(t_stack **stack)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	first = *stack;             // first node (7)
-	second = (*stack)->next;    // second node (2)
-	first->next = second->next; // first points to third
+	first = *stack;
+	second = (*stack)->next;
+	first->next = second->next;
 	first->prev = second;
-	if (second->next != NULL)       // If there is a third node
-		second->next->prev = first; // third prev points to first (new second)
-	second->next = first;           // new first points to new second
-	second->prev = NULL;            // second prev to NULL
-	*stack = second;                // second becomes the new head
+	if (second->next != NULL)
+		second->next->prev = first;
+	second->next = first;
+	second->prev = NULL;
+	*stack = second;
 }
 
 void	sa(t_stack **stack_a)
