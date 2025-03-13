@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:00:02 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:24:15 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 19:53:27 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,18 @@ t_stack	*find_smallest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (smallest);
+}
+
+int	ft_sqrt(int n)
+{
+	int	sqr;
+
+	sqr = 0;
+	while (sqr * sqr <= n && n > 0)
+	{
+		if ((sqr + 1) * (sqr + 1) >= n)
+			return (sqr);
+		sqr++;
+	}
+	return (0);
 }

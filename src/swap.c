@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:11 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:22:26 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 17:32:42 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ static void	swap(t_stack **stack)
 	first = *stack;
 	second = (*stack)->next;
 	first->next = second->next;
-	first->prev = second;
-	if (second->next != NULL)
-		second->next->prev = first;
 	second->next = first;
-	second->prev = NULL;
 	*stack = second;
 }
 

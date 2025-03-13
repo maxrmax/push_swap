@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:05 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:23:14 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 17:33:15 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@ static void	push(t_stack **source, t_stack **destination)
 		return ;
 	node = *source;
 	*source = (*source)->next;
-	if (*source)
-		(*source)->prev = NULL;
 	node->next = *destination;
-	if (*destination)
-		(*destination)->prev = node;
-	node->prev = NULL;
 	*destination = node;
 }
 
