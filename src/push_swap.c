@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:21:39 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 15:39:00 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ int	main(int ac, char **av)
 	else
 	{
 		sorting_start(&stack_a, &stack_b);
+		printf("a: ");
 		print_stack(stack_a);
+		printf("b: ");
+		print_stack(stack_b);
 	}
 	return (free_stack(stack_a), 0);
 }

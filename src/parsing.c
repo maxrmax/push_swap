@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:28:24 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:25:34 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 15:04:09 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ bool	check_duplicates(t_stack **stack)
 	t_stack	*check;
 
 	current = *stack;
+	if (!current)
+		return (1);
 	while (current->next)
 	{
 		check = current->next;
@@ -64,9 +66,9 @@ int	parsing(int ac, char **tokens, t_stack **stack_a)
 	flag = 0;
 	if (int_range(tokens) == 1)
 		flag = 1;
-	if (create_stack(tokens, stack_a) == 1)
+	if (create_stack(tokens, stack_a) == 1 && flag == 0)
 		flag = 1;
-	if (check_duplicates(stack_a) == 1)
+	if (check_duplicates(stack_a) == 1 && flag == 0)
 		flag = 1;
 	if (ac == 2)
 		free_tokens(tokens);

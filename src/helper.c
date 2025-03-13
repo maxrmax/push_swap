@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:00:02 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:24:15 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 15:27:37 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,28 @@ t_stack	*find_smallest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (smallest);
+}
+
+void	index_median(t_stack **stack)
+{
+	int		i;
+	int		median;
+	t_stack	*current;
+
+	current = *stack;
+	i = 0;
+	if (!stack || !*stack)
+		return ;
+	median = (stack_size(*stack) / 2);
+	while (current)
+	{
+		current->index = i;
+		if (i < median)
+			current->above_median = true;
+		else
+			current->above_median = false;
+		current = current->next;
+		i++;
+	}
+	return ;
 }

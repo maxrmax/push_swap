@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:29:03 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:15:53 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 14:52:31 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_two_desc(t_stack **stack_b)
 {
 	if ((*stack_b)->value < (*stack_b)->next->value)
-		ft_rotate_rb(stack_b);
+		rb(stack_b);
 	else
 		return ;
 }
