@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:28:24 by mring             #+#    #+#             */
-/*   Updated: 2025/03/13 15:04:09 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/15 09:52:54 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ bool	check_duplicates(t_stack **stack)
 
 bool	int_range(char **tokens)
 {
-	char	max[11] = "2147483647";
-	char	min[12] = "-2147483648";
-	int		i;
-	int		len;
+	int	i;
+	int	len;
 
 	i = 0;
 	while (tokens[i])
@@ -49,9 +47,10 @@ bool	int_range(char **tokens)
 			return (1);
 		if (len == 10 || (len == 11 && tokens[i][0] == '-'))
 		{
-			if (tokens[i][0] == '-' && (ft_strncmp(tokens[i], min, 11) > 0))
+			if (tokens[i][0] == '-' && (ft_strncmp(tokens[i], "-2147483648",
+						11) > 0))
 				return (1);
-			else if (ft_strncmp(tokens[i], max, 10) > 0)
+			else if (ft_strncmp(tokens[i], "2147483647", 10) > 0)
 				return (1);
 		}
 		i++;

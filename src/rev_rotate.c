@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:08 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:22:54 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 17:51:52 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 static void	rev_rotate(t_stack **stack)
 {
-	t_stack	*head;
+	t_stack	*second_last;
 	t_stack	*tail;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	head = *stack;
-	tail = *stack;
-	while (tail->next)
-		tail = tail->next;
-	tail->prev->next = NULL;
-	tail->prev = NULL;
-	tail->next = head;
-	head->prev = tail;
+	second_last = *stack;
+	while (second_last->next && second_last->next->next)
+		second_last = second_last->next;
+	tail = second_last->next;
+	second_last->next = NULL;
+	tail->next = *stack;
 	*stack = tail;
 }
 

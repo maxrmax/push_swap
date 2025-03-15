@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:10 by mring             #+#    #+#             */
-/*   Updated: 2025/03/10 17:22:44 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/13 17:33:04 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ static void	rotate(t_stack **stack)
 		tail = tail->next;
 	*stack = head->next;
 	head->next = NULL;
-	(*stack)->prev = NULL;
 	tail->next = head;
-	head->prev = tail;
 }
 
 void	ra(t_stack **stack_a)
