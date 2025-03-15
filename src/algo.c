@@ -6,18 +6,11 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:56:38 by mring             #+#    #+#             */
-/*   Updated: 2025/03/13 20:33:55 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/15 09:29:00 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ksort(t_stack **stack_a, t_stack **stack_b)
-{
-	index_stack(stack_a);
-	push_b(stack_a, stack_b);
-	push_back(stack_a, stack_b);
-}
 
 void	index_stack(t_stack **stack_a)
 {
@@ -92,16 +85,17 @@ void	push_back(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-int	get_moves(t_stack *stack_b)
+static int	find_max_index(t_stack *stack_b)
 {
 	t_stack	*temp;
+	int		max_value;
+	int		max_index;
+	int		count;
 
-	int max_index, count, max_value, forward_moves, reverse_moves;
-	if (!stack_b)
-		return (0);
-	max_value = stack_b->value;
-	max_index = count = 0;
 	temp = stack_b;
+	max_value = temp->value;
+	max_index = 0;
+	count = 0;
 	while (temp)
 	{
 		if (temp->value > max_value)
@@ -112,10 +106,21 @@ int	get_moves(t_stack *stack_b)
 		count++;
 		temp = temp->next;
 	}
-	forward_moves = max_index;
-	reverse_moves = stack_size(stack_b) - max_index;
-	if (forward_moves <= reverse_moves)
-		return (forward_moves);
-	else
-		return (-reverse_moves);
+	return (max_index);
+}
+
+int	get_moves(t_stack *stack_b)
+{
+	int	max_index;
+	int	forward;
+	int	reverse;
+
+	if (!stack_b)
+		return (0);
+	max_index = find_max_index(stack_b);
+	forward = max_index;
+	reverse = stack_size(stack_b) - max_index;
+	if (forward <= reverse)
+		return (forward);
+	return (-reverse);
 }

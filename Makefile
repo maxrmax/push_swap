@@ -6,7 +6,7 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/03/10 15:56:31 by mring            ###   ########.fr        #
+#    Updated: 2025/03/15 09:35:49 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,23 +49,6 @@ fclean: 		clean
 				@$(MAKE) -C $(LIBFT_PATH) fclean
 
 re: 			fclean all
-
-test: $(NAME)
-	$(eval N = $(if $(filter-out test,$(MAKECMDGOALS)), $(word 2, $(MAKECMDGOALS)), 5))
-	$(eval ARG = $(shell bash -c 'for i in $$(seq $(N)); do echo -n "$$((RANDOM % 101)) " ; done' | sed 's/ *$$//'))
-	@echo "Generated ARG ($(N) numbers): $(ARG)"
-	./push_swap $(ARG) | ./checker_Mac $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
-
-# linux version
-testl: $(NAME)
-	$(eval N = $(if $(filter-out test,$(MAKECMDGOALS)), $(word 2, $(MAKECMDGOALS)), 5))
-	$(eval ARG = $(shell bash -c 'for i in $$(seq $(N)); do echo -n "$$((RANDOM % 101)) " ; done' | sed 's/ *$$//'))
-	@echo "Generated ARG ($(N) numbers): $(ARG)"
-	./push_swap $(ARG) | ./checker_linux $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
 
 # Dummy rule to ignore extra command-line arguments
 # like make test 10 for above testing case.

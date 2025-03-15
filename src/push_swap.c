@@ -6,29 +6,11 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/03/13 20:34:28 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/15 09:34:10 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack *stack)
-{
-	t_stack	*temp;
-
-	temp = stack;
-	while (temp)
-	{
-		printf("%d ", temp->value);
-		temp = temp->next;
-	}
-	temp = stack;
-	while (temp && temp->next)
-	{
-		temp = temp->next;
-	}
-	printf("\n");
-}
 
 void	sorting_start(t_stack **stack_a, t_stack **stack_b)
 {
@@ -53,6 +35,13 @@ void	sorting_start(t_stack **stack_a, t_stack **stack_b)
 		ksort(stack_a, stack_b);
 }
 
+void	ksort(t_stack **stack_a, t_stack **stack_b)
+{
+	index_stack(stack_a);
+	push_b(stack_a, stack_b);
+	push_back(stack_a, stack_b);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -73,11 +62,7 @@ int	main(int ac, char **av)
 		return (free_stack(stack_a), 1);
 	}
 	else
-	{
 		sorting_start(&stack_a, &stack_b);
-		// print_stack(stack_a);
-		// print_stack(stack_b);
-	}
 	return (free_stack(stack_a), 0);
 }
 

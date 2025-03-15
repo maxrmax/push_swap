@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:03:20 by mring             #+#    #+#             */
-/*   Updated: 2025/03/13 19:41:24 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/15 09:38:05 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+// # include <stdlib.h> included in libft.h
+// # include <unistd.h> included in libft.h
 # include <limits.h>
-# include <stdbool.h> //test
-# include <stdio.h>   // delete
-# include <stdlib.h>
-# include <unistd.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
