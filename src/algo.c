@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:56:38 by mring             #+#    #+#             */
-/*   Updated: 2025/03/15 09:52:36 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:54:20 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,13 @@ void	index_stack(t_stack **stack_a)
 
 void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*current;
-	int		count;
-	int		range;
+	int	count;
+	int	range;
 
 	count = 0;
 	range = ft_sqrt(stack_size(*stack_a)) * 1.6;
 	while (*stack_a)
 	{
-		current = *stack_a;
 		if ((*stack_a)->index <= count)
 		{
 			pb(stack_a, stack_b);

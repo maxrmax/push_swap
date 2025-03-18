@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:23:56 by mring             #+#    #+#             */
-/*   Updated: 2025/03/18 15:14:45 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:54:58 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*gnl_substr(char const *s, size_t start, size_t len)
 	char	*substr;
 
 	i = 0;
-	if (start >= gnl_strlen(s) || start < 0)
+	if (start >= gnl_strlen(s))
 		return (gnl_strdup(""));
 	if (len > gnl_strlen(s) - start)
 		len = gnl_strlen(s) - start;

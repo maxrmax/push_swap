@@ -6,13 +6,13 @@
 #    By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 16:00:27 by mring             #+#    #+#              #
-#    Updated: 2025/03/18 17:30:38 by mring            ###   ########.fr        #
+#    Updated: 2025/03/18 18:57:45 by mring            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 BONUS_NAME		= checker
-CFLAGS			= -Wall -Wextra -Werror -g
+CFLAGS			= -Wall -Wextra -Werror
 
 SRC				= algo create_and_free helper parsing push_swap push rev_rotate rotate small_sort swap
 SRCS			= $(addsuffix .c, $(SRC))
