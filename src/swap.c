@@ -6,11 +6,11 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:11 by mring             #+#    #+#             */
-/*   Updated: 2025/03/13 17:32:42 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:04:21 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 static void	swap(t_stack **stack)
 {

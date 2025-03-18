@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:31:50 by mring             #+#    #+#             */
-/*   Updated: 2025/03/15 09:53:10 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:04:39 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,3 @@ int	main(int ac, char **av)
 		sorting_start(&stack_a, &stack_b);
 	return (free_stack(stack_a), 0);
 }
-
-/*
-sa 	-> swap a[0] and a[1]
-sb 	-> swap b[0] and b[1]
-ss 	-> swap both
-pa 	-> from b[0] to a[0]
-pb 	-> from a[0] to b[0]
-ra 	-> shift everything of a up by 1 (first to last)
-rb 	-> shift everything of b up by 1 (first to last)
-rr 	-> shift both by 1
-rra	-> shift everything of a down by 1 (last to first)
-rrb	-> shift everything of b down by 1 (last to first)
-rrr	-> shift both down by 1
-*/
-
-/*
-INT_MIN: -2147483648
-	Bit: 10000000 00000000 00000000 00000000
-	Hex: 0x80000000
-INT_MAX: 2147483647
-	Bit: 01111111 11111111 11111111 11111111
-	Hex: 0x7FFFFFFF
-*/

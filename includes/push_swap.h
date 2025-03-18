@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:03:20 by mring             #+#    #+#             */
-/*   Updated: 2025/03/18 17:12:53 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:03:10 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,8 @@ void				free_stack(t_stack *stack_a);
 void				free_tokens(char **tokens);
 long				ft_atol(const char *str);
 
-// bonus checker
-
-// operations
+// bonus
+// operations // checker utils
 void				sa_c(t_stack **stack_a);
 void				sb_c(t_stack **stack_b);
 void				ss_c(t_stack **stack_a, t_stack **stack_b);
@@ -84,8 +83,8 @@ void				rra_c(t_stack **stack_a);
 void				rrb_c(t_stack **stack_b);
 void				rrr_c(t_stack **stack_a, t_stack **stack_b);
 
+// checker
 void				read_commands(t_stack **stack_a, t_stack **stack_b);
 void				exec_commands(char *command, t_stack **a, t_stack **b);
-bool				check_order(t_stack **stack);
 
 #endif

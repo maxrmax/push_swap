@@ -6,7 +6,7 @@
 /*   By: mring <mring@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:05:05 by mring             #+#    #+#             */
-/*   Updated: 2025/03/18 17:18:33 by mring            ###   ########.fr       */
+/*   Updated: 2025/03/18 18:03:35 by mring            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 		return (free_stack(stack_a), 1);
 	}
 	read_commands(&stack_a, &stack_b);
-	if (check_order(&stack_a))
+	if (is_sorted(stack_a))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
@@ -80,41 +80,5 @@ void	exec_commands(char *command, t_stack **stack_a, t_stack **stack_b)
 	else if (ft_strncmp(command, "rr\n", 4) == 0)
 		rr_c(stack_a, stack_b);
 	else
-		exit(ft_printf("Error\n", 1));
+		exit(ft_printf("Error\n"));
 }
-
-bool	check_order(t_stack **stack)
-{
-	t_stack	*current_nbr;
-
-	current_nbr = *stack;
-	while (current_nbr->next != NULL)
-	{
-		if (current_nbr->next->value < current_nbr->value)
-			return (false);
-		current_nbr = current_nbr->next;
-	}
-	return (true);
-}
-
-/*
-
-It will then wait and read instructions from the standard input,
-with each instruction followed by ’\n’. Once all the instructions have been read,
-the program has to execute them on the stack received as an argument.
-
-If after executing those instructions,
-	the stack a is actually sorted and the stack b
-is empty,
-	then the program must display "OK" followed by a ’\n’ on the standard output.
-
-In every other case,
-	it must display "KO" followed by a ’\n’ on the standard output.
-
-In case of error,
-	you must display "Error" followed by a ’\n’ on the standard error.
-Errors include for example: some arguments are not integers, some argumentsare
-bigger than an integer, there are duplicates,
-	an instruction doesn’t exist and/or
-is incorrectly formatted.
-*/
